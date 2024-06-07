@@ -1,6 +1,6 @@
 This repo will go over the Forms\Components\RichEditor::make('') bug.
 
-This problem only occurs when the individual has changed the MarkdownEditor to RichEditor and switches the "Create Post" method to the slideover action.  
+This problem only occurs when(the packages of composer and npm are update to the lastest) and the individual has changed the MarkdownEditor to RichEditor and switches the "Create Post" method to the slideover action.  
 
 *to create the bug*
 
