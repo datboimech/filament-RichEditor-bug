@@ -1,102 +1,25 @@
-# Filament Demo App
+This repo will go over about the Forms\Components\RichEditor::make('') bug.
 
-A demo application to illustrate how Filament Admin works.
+This problem only occurs when the individual has changes the editor and switch the "Create Post" method to the slideover action.  
 
-![Filament Demo](https://github.com/filamentphp/demo/assets/171715/899161a9-3c85-4dc9-9599-13928d3a4412)
+*The way to create the bug*
+slideover:
+https://github.com/datboimech/filament-description-bug/blob/83e6aed3566e928176ec4db8a300be976be5d9b2/app/Filament/Resources/Blog/PostResource/Pages/ListPosts.php#L16
 
-[Open in Gitpod](https://gitpod.io/#https://github.com/filamentphp/demo) to edit it and preview your changes with no setup required.
+Replace MarkdownEditor with RichEditor:
+https://github.com/datboimech/filament-description-bug/blob/83e6aed3566e928176ec4db8a300be976be5d9b2/app/Filament/Resources/Blog/PostResource.php#L58
 
-## Installation
+You must commet out the "'create' => Pages\CreatePost::route('/create')," in order for the slideover to work:
+https://github.com/datboimech/filament-description-bug/blob/83e6aed3566e928176ec4db8a300be976be5d9b2/app/Filament/Resources/Blog/PostResource.php#L253
 
-Clone the repo locally:
+(This problem will be set on the post section on the demo website) 
+When using the RichEditor for slideover to create a post; after filling the form out on the demo. When the person clicks the "Create & Create Another" button. The text in RichEditor will stay after the button is click.
 
-```sh
-git clone https://github.com/laravel-filament/demo.git filament-demo && cd filament-demo
-```
+Screenshots
+Before:
+![image](https://github.com/datboimech/filament-description-bug/assets/47047103/c0fc683b-fe13-4455-a4e8-5f9b88ee0a49)
+Look at the title on the table
 
-Install PHP dependencies:
-
-```sh
-composer install
-```
-
-Setup configuration:
-
-```sh
-cp .env.example .env
-```
-
-Generate application key:
-
-```sh
-php artisan key:generate
-```
-
-Create an SQLite database. You can also use another database (MySQL, Postgres), simply update your configuration accordingly.
-
-```sh
-touch database/database.sqlite
-```
-
-Run database migrations:
-
-```sh
-php artisan migrate
-```
-
-Run database seeder:
-
-```sh
-php artisan db:seed
-```
-
-> **Note**  
-> If you get an "Invalid datetime format (1292)" error, this is probably related to the timezone setting of your database.  
-> Please see https://dba.stackexchange.com/questions/234270/incorrect-datetime-value-mysql
-
-
-Create a symlink to the storage:
-
-```sh
-php artisan storage:link
-```
-
-Run the dev server (the output will give the address):
-
-```sh
-php artisan serve
-```
-
-You're ready to go! Visit the url in your browser, and login with:
-
--   **Username:** admin@filamentphp.com
--   **Password:** password
-
-## Features to explore
-
-### Relations
-
-#### BelongsTo
-- ProductResource
-- OrderResource
-- PostResource
-
-#### BelongsToMany
-- CategoryResource\RelationManagers\ProductsRelationManager
-
-#### HasMany
-- OrderResource\RelationManagers\PaymentsRelationManager
-
-#### HasManyThrough
-- CustomerResource\RelationManagers\PaymentsRelationManager
-
-#### MorphOne
-- OrderResource -> Address
-
-#### MorphMany
-- ProductResource\RelationManagers\CommentsRelationManager
-- PostResource\RelationManagers\CommentsRelationManager
-
-#### MorphToMany
-- BrandResource\RelationManagers\AddressRelationManager
-- CustomerResource\RelationManagers\AddressRelationManager
+After:
+![image](https://github.com/datboimech/filament-description-bug/assets/47047103/c7579785-e834-450f-8915-3b8d87ec8271)
+The text doesn't clear after the "Create & Create Another" button
