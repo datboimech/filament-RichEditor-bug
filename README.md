@@ -2,7 +2,7 @@ This repo will go over about the Forms\Components\RichEditor::make('') bug.
 
 This problem only occurs when the individual has changes the editor and switch the "Create Post" method to the slideover action.  
 
-*The way to create the bug*
+*The way to create the bug*/n
 slideover:
 https://github.com/datboimech/filament-description-bug/blob/83e6aed3566e928176ec4db8a300be976be5d9b2/app/Filament/Resources/Blog/PostResource/Pages/ListPosts.php#L16
 
