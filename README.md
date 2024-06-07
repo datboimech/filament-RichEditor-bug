@@ -1,8 +1,8 @@
-This repo will go over about the Forms\Components\RichEditor::make('') bug.
+This repo will go over the Forms\Components\RichEditor::make('') bug.
 
-This problem only occurs when the individual has changes the editor and switch the "Create Post" method to the slideover action.  
+This problem only occurs when the individual has changed the MarkdownEditor to RichEditor and switches the "Create Post" method to the slideover action.  
 
-*The to create the bug*
+*to create the bug*
 
 1. slideover:
     - https://github.com/datboimech/filament-description-bug/blob/83e6aed3566e928176ec4db8a300be976be5d9b2/app/Filament/Resources/Blog/PostResource/Pages/ListPosts.php#L16
@@ -10,11 +10,11 @@ This problem only occurs when the individual has changes the editor and switch t
 2. Replace MarkdownEditor with RichEditor:
     - https://github.com/datboimech/filament-description-bug/blob/83e6aed3566e928176ec4db8a300be976be5d9b2/app/Filament/Resources/Blog/PostResource.php#L58
 
-3. You must commet out the "'create' => Pages\CreatePost::route('/create'),":
+3. You must comment out the "'create' => Pages\CreatePost::route('/create'),":
     - https://github.com/datboimech/filament-description-bug/blob/83e6aed3566e928176ec4db8a300be976be5d9b2/app/Filament/Resources/Blog/PostResource.php#L253
 
 (This problem will be set on the post section on the demo website) 
-When using the RichEditor for slideover to create a post; after filling the form out on the demo. When the person clicks the "Create & Create Another" button. The text in RichEditor will stay after the button is click.
+When using the RichEditor for slideover to create a post; after filling the form out on the demo. When the person clicks the "Create & Create Another" button. The text in RichEditor will stay after the button is clicked.
 
 + Screenshots
 Before:
