@@ -24,3 +24,5 @@ Look at the title on the table
 After:
 ![image](https://github.com/datboimech/filament-description-bug/assets/47047103/c7579785-e834-450f-8915-3b8d87ec8271)
 The text doesn't clear after the "Create & Create Another" button
+
+Last problem to the bug; if you copy and paste the text in the same place then save, it will not save into the post.
